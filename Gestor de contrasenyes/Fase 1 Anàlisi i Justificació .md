@@ -54,3 +54,19 @@ Bitwarden és l'alternativa **online (núvol)** i KeePassXC l'alternativa **offl
 
 ## 3. Avantatges i inconvenients: online vs offline
 Cap model és millor en tots els aspectes: l'online guanya en comoditat i col·laboració, i l'offline en control i independència.
+
+### 3.1 Model online (Bitwarden)
+
+| Àmbit | Avantatges | Inconvenients |
+| --- | --- | --- |
+| Seguretat | Xifratge extrem a extrem; el proveïdor no pot llegir les dades. Codi obert i auditat. 2FA al compte. Actualitzacions gestionades pel proveïdor. | Les dades xifrades estan en un servidor de tercers. Si es roba el compte o la contrasenya mestra és feble, tota la caixa forta queda exposada. Cal confiar en el proveïdor. |
+| Usabilitat | Sincronització immediata entre PC, mòbil i navegador. Instal·lació i alta molt senzilles. Bona experiència per a usuaris no tècnics. | Cal crear un compte i, en alguns plans, pagar per a les funcions avançades. |
+| Continuïtat del negoci | Accés des de qualsevol lloc. Compartició per col·leccions i recuperació d'accés més fàcil en plans d'organització. | Depèn de la disponibilitat del servei i de la política del proveïdor (preus, canvis de pla). Es pot mitigar amb la còpia local o amb l'autoallotjament, que exigeix administrar un servidor. |
+
+### 3.2 Model offline (KeePassXC)
+
+| Àmbit | Avantatges | Inconvenients |
+| --- | --- | --- |
+| Seguretat | Cap dada surt de l'equip si no es vol. Superfície d'atac petita. Xifratge fort (AES-256, Argon2id) i arxiu clau o YubiKey opcionals. Sense dependència de tercers. | La seguretat depèn de l'usuari: on es guarda l'arxiu, si es fa còpia, si l'equip està infectat. L'extensió del navegador requereix l'aplicació oberta. |
+| Usabilitat | Totalment gratuït i sense registre. Interfície completa (grups, camps personalitzats, TOTP, adjunts). | Sense sincronització automàtica; cal organitzar-la. El mòbil depèn d'apps de tercers compatibles amb KDBX. Corba d'aprenentatge una mica més alta. |
+| Continuïtat del negoci | Funciona sense Internet i no pot deixar de funcionar per la caiguda o el tancament d'un servei. L'arxiu `.kdbx` és portable i obert. | Si es perd l'arxiu o la contrasenya mestra i no hi ha còpia, no hi ha recuperació possible. Difícil compartir credencials amb un equip amb control d'accés i traçabilitat. Risc de còpies desincronitzades. |

@@ -70,3 +70,26 @@ Cap model és millor en tots els aspectes: l'online guanya en comoditat i col·l
 | Seguretat | Cap dada surt de l'equip si no es vol. Superfície d'atac petita. Xifratge fort (AES-256, Argon2id) i arxiu clau o YubiKey opcionals. Sense dependència de tercers. | La seguretat depèn de l'usuari: on es guarda l'arxiu, si es fa còpia, si l'equip està infectat. L'extensió del navegador requereix l'aplicació oberta. |
 | Usabilitat | Totalment gratuït i sense registre. Interfície completa (grups, camps personalitzats, TOTP, adjunts). | Sense sincronització automàtica; cal organitzar-la. El mòbil depèn d'apps de tercers compatibles amb KDBX. Corba d'aprenentatge una mica més alta. |
 | Continuïtat del negoci | Funciona sense Internet i no pot deixar de funcionar per la caiguda o el tancament d'un servei. L'arxiu `.kdbx` és portable i obert. | Si es perd l'arxiu o la contrasenya mestra i no hi ha còpia, no hi ha recuperació possible. Difícil compartir credencials amb un equip amb control d'accés i traçabilitat. Risc de còpies desincronitzades. |
+
+
+## 4. Recomanació
+
+**Recomanem KeePassXC per al personal tècnic de l'empresa.**
+
+**Motius:**
+
+1. **Control total i mínima dependència de tercers.** Les credencials d'un equip tècnic (servidors, xarxa, administració) són les de més valor. Amb KeePassXC no surten de l'empresa ni depenen de la disponibilitat o de les condicions d'un proveïdor.
+2. **Superfície d'atac menor.** No hi ha servei exposat ni compte al núvol que es pugui atacar o suplantar.
+3. **Seguretat configurable.** El personal tècnic pot aprofitar l'arxiu clau, la YubiKey, l'Argon2id amb paràmetres alts i el TOTP integrat.
+4. **Cost zero i format obert.** El `.kdbx` és un estàndard obert amb molts clients compatibles, de manera que no hi ha risc de dependència (*vendor lock-in*).
+5. **Continuïtat.** Funciona sense Internet, i amb còpies de seguretat ben fetes la recuperació és fiable.
+6. **Encaixa amb les capacitats de l'equip.** Un perfil tècnic pot gestionar sense dificultat la sincronització i les còpies, que és el principal punt feble del model offline.
+
+**Condicions per fer-ho bé (mitigació dels inconvenients):**
+
+- Contrasenya mestra llarga (frase de pas) i, si és possible, arxiu clau o YubiKey.
+- Política de còpies de seguretat regular (detallada a la guia de la Fase 2), amb una còpia xifrada fora de l'equip.
+- Un únic arxiu de referència per usuari, amb un sistema de sincronització acordat si s'usa en més d'un equip.
+- Per a credencials compartides de l'equip, usar una base de dades compartida només en un emmagatzematge de l'empresa amb control d'accés, o valorar un gestor amb compartició (com Bitwarden Teams) si el nombre d'usuaris creix.
+
+**Quan seria preferible Bitwarden:** per a personal no tècnic, per a plantilles amb molts dispositius mòbils o quan es necessita compartició centralitzada amb permisos i traçabilitat. Es podria plantejar com a segona fase per a la resta de l'empresa.

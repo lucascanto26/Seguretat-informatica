@@ -27,3 +27,27 @@ Un gestor de contrasenyes elimina aquesta causa de fons, perquè l'usuari només
 - **Emplenament automàtic:** omple usuari i contrasenya només al domini correcte, la qual cosa limita el phishing i evita copiar i enganxar.
 - **Organització i control:** agrupa les credencials per carpetes o etiquetes, permet auditar contrasenyes repetides o dèbils i facilita canviar-les si hi ha una filtració.
 - **Còpia de seguretat:** permet restaurar l'accés si es perd el dispositiu.
+
+## 2. Comparativa tècnica
+
+Bitwarden és l'alternativa **online (núvol)** i KeePassXC l'alternativa **offline (escriptori)**. Totes dues són de codi obert, xifren les dades amb algorismes forts i tenen extensió de navegador; la diferència principal és **on viu la base de dades i qui s'encarrega de sincronitzar-la**.
+
+| Criteri | Bitwarden (núvol) | KeePassXC (escriptori) |
+| --- | --- | --- |
+| Model | Servei al núvol (també es pot autoallotjar). Clients per a web, escriptori, mòbil, extensió i CLI. | Aplicació d'escriptori local per a Windows, macOS i Linux. Sense servidor ni compte. |
+| Emmagatzematge | La caixa forta xifrada es guarda als servidors de Bitwarden i es manté una còpia local a cada dispositiu. | Un únic arxiu local `.kdbx` (format KDBX 4) que l'usuari desa on vulgui. |
+| Sincronització | Automàtica entre tots els dispositius connectats al mateix compte. | No en té de nativa. S'ha de fer a mà (còpia de l'arxiu) o amb eines externes (Syncthing, Nextcloud, OneDrive xifrat, etc.). |
+| Xifratge i model de seguretat | Xifratge extrem a extrem de tipus *zero-knowledge*: la clau es deriva de la contrasenya mestra al dispositiu i el servidor només guarda dades xifrades (AES-256). KDF: PBKDF2-SHA256 o Argon2id. | Arxiu xifrat amb AES-256 (també ChaCha20 o Twofish). KDF Argon2id per defecte en KDBX 4. Clau composta: contrasenya + arxiu clau + YubiKey opcionals. |
+| Segon factor | 2FA per al compte (app TOTP, correu, FIDO2/YubiKey segons pla). | No hi ha compte; es reforça l'arxiu amb arxiu clau o YubiKey (repte-resposta). |
+| Accés multidispositiu | Molt fàcil: ordinador, mòbil i qualsevol navegador via web vault. | Més limitat: cal portar l'arxiu al dispositiu i usar una app compatible amb KDBX al mòbil (KeePassDX, KeePassium...). |
+| Extensió de navegador | Oficial (Chrome, Firefox, Edge, Safari...). | KeePassXC-Browser (Chrome, Firefox, Edge...) connectada a l'aplicació d'escriptori, que ha d'estar oberta i desbloquejada. |
+| Cost / model | *Freemium*: pla gratuït amb contrasenyes i dispositius il·limitats; Premium, Teams i Enterprise de pagament amb funcions extra (TOTP integrat, informes, gestió d'equips). | Gratuït, sense plans ni límits. |
+| Codi obert | Sí (clients i servidor). Ha passat auditories de seguretat externes. | Sí (GPL). Desenvolupament comunitari actiu. |
+| Independència del núvol | Depèn del servei (o de l'autoallotjament) i de la connexió per sincronitzar. Hi ha accés sense connexió amb la còpia local. | Total. Funciona sense Internet i sense cap tercer. |
+| Portabilitat de l'arxiu | Exportació a CSV o JSON (aquest últim pot anar xifrat). | `.kdbx` es pot copiar, moure o obrir amb molts clients compatibles (KeePass, KeePassXC, KeePassDX, KeePassium). |
+| Gestió d'equip / compartició | Col·leccions i organitzacions per compartir credencials amb permisos (plans de pagament). | No hi ha compartició centralitzada: s'ha de compartir l'arxiu, i això complica el control d'accessos. |
+| Superfície d'atac | Cal confiar en el proveïdor i protegir el compte (la filtració del servidor no revela les claus, però un compte robat sí que és un risc). | Més petita, perquè no hi ha servei exposat. El risc és perdre l'arxiu, no fer-ne còpia o que es robi el dispositiu. |
+
+**Nota sobre KeePassX:** KeePassX és el projecte original, però gairebé no rep actualitzacions. KeePassXC n'és la continuació activa i és el que cal usar avui (suporta KDBX 4, Argon2, TOTP i integració amb el navegador). Per això l'informe compara Bitwarden amb KeePassXC.
+
+*Els preus i els límits dels plans poden canviar; cal comprovar-los a bitwarden.com/pricing abans de decidir.*

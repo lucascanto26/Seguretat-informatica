@@ -51,3 +51,6 @@ Bitwarden és l'alternativa **online (núvol)** i KeePassXC l'alternativa **offl
 **Nota sobre KeePassX:** KeePassX és el projecte original, però gairebé no rep actualitzacions. KeePassXC n'és la continuació activa i és el que cal usar avui (suporta KDBX 4, Argon2, TOTP i integració amb el navegador). Per això l'informe compara Bitwarden amb KeePassXC.
 
 *Els preus i els límits dels plans poden canviar; cal comprovar-los a bitwarden.com/pricing abans de decidir.*
+
+## 3. Avantatges i inconvenients: online vs offline
+Cap model és millor en tots els aspectes: l'online guanya en comoditat i col·laboració, i l'offline en control i independència.

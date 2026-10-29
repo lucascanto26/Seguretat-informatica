@@ -82,3 +82,40 @@ Per a una contrasenya que hagis de **recordar** (la contrasenya mestra o el logi
 
 ![generació passphrase](img/Captura%20de%20pantalla%202026-10-29%20170454.png)
 
+## 3. Exemples d'ús i emplenament automàtic
+
+En aquest apartat es desen dues credencials (un compte de correu i un servei web) i es prova l'emplenament automàtic amb l'extensió. Els noms i dominis dels exemples són ficticis.
+
+### 3.1 Desar les credencials d'un compte de correu
+
+Al web vault, prem **+ New > Login**.
+2. Omple els camps:
+   - **Item name:** `Correu corporatiu - Outlook`
+   - **Username:** `nom.cognom@empresa.example`
+   - **Password:** prem la icona de refrescar (**Generate**) i genera una contrasenya de 24 caràcters.
+   - **Website (URI):** `https://outlook.office.com`
+   - **Notes:** dades útils (per exemple, "2FA activat amb app").
+3. A **Folder**, tria o crea la carpeta `Correu`.
+4. Prem **Save**.
+5. Canvia la contrasenya del compte de correu real per la que has generat.
+
+![correu corporatiu](img/Captura%20de%20pantalla%202026-10-29%20171505.png)
+
+### 3.2 Desar les credencials d'una aplicació o servei web
+
+1. Prem **+ New > Login**.
+2. Omple els camps, per exemple:
+   - **Item name:** `GitHub - compte de l'equip`
+   - **Username:** `usuari-equip`
+   - **Password:** generada (20-24 caràcters)
+   - **Website (URI):** `https://github.com/login`
+   - **Folder:** `Serveis web`
+3. Prem **Save** i canvia la contrasenya al servei real.
+4. Per a dispositius o aplicacions que no són web (un switch, un router), crea el Login amb el nom del dispositiu i la seva IP al camp *Notes* o a la URI.
+
+![compte equip](img/Captura%20de%20pantalla%202026-10-29%20171719.png)
+
+### 3.3 Emplenar automàticament amb l'extensió
+
+Ara per exemple entrem a GitHub i ens surt per posar el compte de GitHub que esta registrada a Warden.
+

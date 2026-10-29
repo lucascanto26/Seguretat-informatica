@@ -74,21 +74,22 @@ Cap model és millor en tots els aspectes: l'online guanya en comoditat i col·l
 
 ## 4. Recomanació
 
-**Recomanem Bitwarden per al personal tècnic de l'empresa.**
+**Recomanem KeePassXC per al personal tècnic de l'empresa.**
 
 **Motius:**
 
-1. **Xifratge extrem a extrem i codi obert auditat.** El proveïdor no pot llegir les credencials, de manera que el model de seguretat és comparable al d'una base de dades local ben protegida.
-2. **Sincronització automàtica i accés multidispositiu.** El personal tècnic treballa amb diversos equips i dispositius, i la caixa forta és la mateixa a tots, sense haver de copiar arxius a mà.
-3. **Compartició amb control d'accessos.** Les col·leccions i organitzacions permeten compartir credencials d'equip (servidors, xarxa, comptes de servei) amb permisos i sense passar-se contrasenyes per canals insegurs.
-4. **Ús des del navegador, sense instal·lació.** El web vault i l'extensió oficial permeten treballar des de qualsevol equip i redueixen el risc de phishing, perquè només omplen al domini correcte.
-5. **Cost baix i model freemium.** El pla gratuït cobreix l'ús individual i els plans Teams o Enterprise són assequibles si l'empresa vol gestió centralitzada.
-6. **Continuïtat.** L'accés no depèn d'un únic equip: si es perd o s'espatlla un dispositiu, la caixa forta continua disponible al núvol.
+1. **Control total i mínima dependència de tercers.** Les credencials d'un equip tècnic (servidors, xarxa, administració) són les de més valor. Amb KeePassXC no surten de l'empresa ni depenen de la disponibilitat o de les condicions d'un proveïdor.
+2. **Superfície d'atac menor.** No hi ha servei exposat ni compte al núvol que es pugui atacar o suplantar.
+3. **Seguretat configurable.** El personal tècnic pot aprofitar l'arxiu clau, la YubiKey, l'Argon2id amb paràmetres alts i el TOTP integrat.
+4. **Cost zero i format obert.** El `.kdbx` és un estàndard obert amb molts clients compatibles, de manera que no hi ha risc de dependència (*vendor lock-in*).
+5. **Continuïtat.** Funciona sense Internet, i amb còpies de seguretat ben fetes la recuperació és fiable.
+6. **Encaixa amb les capacitats de l'equip.** Un perfil tècnic pot gestionar sense dificultat la sincronització i les còpies, que és el principal punt feble del model offline.
 
 **Condicions per fer-ho bé (mitigació dels inconvenients):**
 
-- Contrasenya mestra llarga (frase de pas) i segon factor (2FA) obligatori per a tots els usuaris.
-- Còpia de seguretat periòdica amb exportació xifrada (.json Encrypted protegida amb contrasenya) guardada en una unitat xifrada fora del compte, tal com detalla la guia de la Fase 2.
-- Valorar l'autoallotjament de Bitwarden si l'empresa vol que les dades xifrades no surtin de la seva infraestructura.
+- Contrasenya mestra llarga (frase de pas) i, si és possible, arxiu clau o YubiKey.
+- Política de còpies de seguretat regular (detallada a la guia de la Fase 2), amb una còpia xifrada fora de l'equip.
+- Un únic arxiu de referència per usuari, amb un sistema de sincronització acordat si s'usa en més d'un equip.
+- Per a credencials compartides de l'equip, usar una base de dades compartida només en un emmagatzematge de l'empresa amb control d'accés, o valorar un gestor amb compartició (com Bitwarden Teams) si el nombre d'usuaris creix.
 
-**Quan seria preferible KeePassXC:** per a credencials d'infraestructura molt crítiques que no han de dependre de cap servei extern, o en entorns sense connexió a Internet.
+**Quan seria preferible Bitwarden:** per a personal no tècnic, per a plantilles amb molts dispositius mòbils o quan es necessita compartició centralitzada amb permisos i traçabilitat. Es podria plantejar com a segona fase per a la resta de l'empresa.

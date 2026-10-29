@@ -119,3 +119,33 @@ Al web vault, prem **+ New > Login**.
 
 Ara per exemple entrem a GitHub i ens surt per posar el compte de GitHub que esta registrada a Warden.
 
+## 4. Gestió de còpies de seguretat (backup)
+
+Bitwarden guarda la caixa forta als seus servidors, però l'empresa ha de tenir una **còpia pròpia**, per si es perd l'accés al compte, hi ha una incidència del servei o es vol migrar a una altra eina.
+
+### 4.1 Fer una exportació xifrada
+
+Entrarem a eines, export i exportarme amb un arxiu JSON.(encrypted)
+![export](img/Captura%20de%20pantalla%202026-10-29%20172148.png)
+
+I l'exportarem amb contrasenya.
+
+![arxiu exportat amb contrasenya](img/Captura%20de%20pantalla%202026-10-29%20172309.png)
+
+### 4.2 On guardar la còpia: millor pràctica
+
+S'aplica la regla **3-2-1**: com a mínim **3 còpies** (la caixa forta al núvol i dues exportacions), en **2 suports diferents**, amb **1 còpia fora de la ubicació principal**. La còpia ha d'estar en un lloc **xifrat**.
+
+| Opció | Avantatges | Cal tenir en compte |
+| --- | --- | --- |
+| **Clau USB xifrada** (recomanada com a còpia principal) | Offline, sota el control de l'empresa, sense dependre de tercers. | Es pot perdre o espatllar; cal una segona unitat i guardar-la en un lloc segur. |
+| **Emmagatzematge al núvol xifrat** (per exemple, un OneDrive o Drive de l'empresa, o una carpeta amb Cryptomator o VeraCrypt) | Còpia fora de l'oficina, accessible i amb historial de versions. | Cal confiar en el servei. Per això el xifratge ha de ser nostre, no només el del proveïdor. 
+
+
+### 4.3 Normes d'or
+
+- **No guardis mai la contrasenya del fitxer d'exportació ni el codi de recuperació del 2FA al mateix lloc que la còpia.**
+- **Freqüència:** fes una exportació cada cop que afegeixis o canviïs credencials importants, i com a mínim una vegada al mes.
+- **Conserva diverses versions** (per exemple, les últimes 5 amb data).
+- **Prova la restauració** com a mínim un cop al trimestre: a **Tools > Import data** tria **Bitwarden (json)**, carrega la còpia i comprova que s'importa en un compte de prova.
+- **Defineix responsables:** deixa escrit qui fa les còpies, on es guarden i qui hi té accés.
